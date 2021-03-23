@@ -4168,6 +4168,12 @@ namespace chess
             }
         }
 
+
+        [[nodiscard]] constexpr std::uint8_t pieceCount(Piece pt) const
+        {
+            return m_pieceCount[pt];
+        }
+
         constexpr void undoMove(Move move, Piece capturedPiece)
         {
             if (move.type == MoveType::Normal || move.type == MoveType::Promotion)
@@ -4330,11 +4336,6 @@ namespace chess
             return piecesBB(Color::White) | piecesBB(Color::Black);
 
             return bb;
-        }
-
-        [[nodiscard]] constexpr std::uint8_t pieceCount(Piece pt) const
-        {
-            return m_pieceCount[pt];
         }
 
         [[nodiscard]] constexpr bool isPromotion(Square from, Square to) const
