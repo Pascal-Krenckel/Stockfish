@@ -3785,6 +3785,12 @@ namespace chess
             return true;
         }
 
+        constexpr uint8_t GetPieceCount(Piece piece) const
+        {
+            return m_pieceCount[piece];
+        }
+
+
         [[nodiscard]] inline std::string fen() const;
 
         [[nodiscard]] inline bool trySet(std::string_view boardState)
@@ -4340,10 +4346,7 @@ namespace chess
 
         const Piece* piecesRaw() const;
 
-        constexpr uint8_t GetPieceCount(Piece piece) const
-        {
-            return m_pieceCount[piece];
-        }
+
 
     private:
         EnumArray<Square, Piece> m_pieces;
@@ -4398,6 +4401,11 @@ namespace chess
     struct Position : public Board
     {
         using BaseType = Board;
+
+        constexpr uint8_t GetPieceCount(Piece piece) const
+        {
+            return Board::GetPieceCount(piece);
+        }
 
         constexpr Position() noexcept :
             Board(),
