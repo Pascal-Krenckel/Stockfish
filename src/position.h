@@ -81,7 +81,10 @@ class Thread;
 class Position {
 public:
   static void init();
-
+  constexpr getPieceCount(Piece piece) const
+  {
+      return this->pieceCount[piece];
+  }
   Position() = default;
   Position(const Position&) = delete;
   Position& operator=(const Position&) = delete;
