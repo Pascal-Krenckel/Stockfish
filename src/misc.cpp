@@ -654,17 +654,6 @@ void sleep(int ms)
     std::this_thread::sleep_for(std::chrono::milliseconds(ms));
 }
 
-void* aligned_malloc(size_t size, size_t align)
-{
-    void* p = _mm_malloc(size, align);
-    if (p == nullptr)
-    {
-        std::cout << "info string can't allocate memory. sise = " << size << std::endl;
-        exit(1);
-    }
-    return p;
-}
-
 std::uint64_t get_file_size(std::fstream& fs)
 {
     auto pos = fs.tellg();
