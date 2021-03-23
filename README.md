@@ -13,11 +13,13 @@ Stockfish NNUE is a port of a shogi neural network named NNUE (efficiently updat
 
 To compile:
 ```
+cd src
 make -jN ARCH=... build
 ```
 
 To compile with Profile Guided Optimizations. Requires that the computer that is used for compilation supports the selected `ARCH`.
 ```
+cd src
 make -jN ARCH=... profile-build
 ```
 
