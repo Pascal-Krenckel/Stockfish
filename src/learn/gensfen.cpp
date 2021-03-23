@@ -348,7 +348,7 @@ namespace Learner
                 // Discard stuff before write_minply is reached
                 // because it can harm training due to overfitting.
                 // Initial positions would be too common.
-                if (ply >= params.write_minply)
+                if (ply >= params.write_minply && !(pos.GetPieceCount(Piece::B_QUEEN)*pos.GetPieceCount(Piece::W_QUEEN)))
                 {
                     packed_sfens.emplace_back(PackedSfenValue());
 

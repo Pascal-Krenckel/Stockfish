@@ -4340,6 +4340,11 @@ namespace chess
 
         const Piece* piecesRaw() const;
 
+        constexpr uint8_t GetPieceCount(Piece piece) const
+        {
+            return m_pieceCount[piece];
+        }
+
     private:
         EnumArray<Square, Piece> m_pieces;
         EnumArray<Piece, Bitboard> m_pieceBB;
@@ -6015,7 +6020,7 @@ namespace chess
     [[nodiscard]] std::string Position::fen() const
     {
         std::string fen = Board::fen();
-
+        
         fen += ' ';
         fen += m_sideToMove == Color::White ? 'w' : 'b';
 
